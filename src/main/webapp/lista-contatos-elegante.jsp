@@ -20,6 +20,7 @@
 
 	<table border="3px" cellpadding="10px" bordercolor="red">
 		<tr>
+			<td>Id</td>
 			<td>Nome</td>
 			<td>Email</td>
 			<td>Endereco</td>
@@ -29,7 +30,7 @@
 		<c:forEach var="contato" items="${dao.lista}">
 
 			<tr>
-
+				<td>${contato.id}</td>
 				<td>${contato.nome}</td>
 				<td><c:choose>
 						<c:when test="${not empty contato.email}">
