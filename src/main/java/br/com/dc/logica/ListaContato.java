@@ -11,6 +11,8 @@ import br.com.dc.models.Contato;
 
 public class ListaContato implements Logica{
 
+	//http://localhost:8080/Fj21/mvc?logica=ListaContato
+	
 	public void executa(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
