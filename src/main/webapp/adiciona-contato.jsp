@@ -13,7 +13,7 @@
 <body>
 	<c:import url="cabecalho.jsp" />
 
-	<form action="adicionaContato" method="post">
+	<form action="mvc" method="post">
 
 		Nome : <input type="text" name="nome"><br> 
 		Email : <input	type="text" name="email"><br>
@@ -21,6 +21,7 @@
 	    Data Nascimento : <input type="text" name="dataNascimento" id="datepicker"><br> 
 	    
 	    <input	type="submit" value="Ok">
+	    <input type="hidden" name="logica" value="AdicionaContato">
 	</form>
 
 	<c:import url="rodape.jsp" />
