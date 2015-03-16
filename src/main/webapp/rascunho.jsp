@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img alt="2" src="resources/imagens/american.jpg" width="100%" height="90">
+${contatos.nome }
+${contatos.id }
 </body>
 </html>

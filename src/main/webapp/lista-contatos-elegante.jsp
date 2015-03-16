@@ -25,6 +25,8 @@
 			<td>Email</td>
 			<td>Endereco</td>
 			<td>Data</td>
+			<td>Editar</td>
+			<td>Excluir</td>
 		</tr>
 
 		<c:forEach var="contato" items="${dao.lista}">
@@ -41,6 +43,8 @@
 				<td>${contato.endereco}</td>
 				<td><fmt:formatDate value="${contato.dataNascimento.time}"
 						pattern="dd/MM/yyyy" /></td>
+				<td><a href="mvc?logica=BuscaContato&id=${contato.id}"><img alt="Editar" src="resources/imagens/editar.png" width="90" height="50"></a></td>
+				<td><a href="mvc?logica=ExcluirContato&id=${contato.id}" onclick = "return confirm('Você tem certeza que deseja excluir este registro?')"> <img  alt="excluir" width="120" height="100" src="resources/imagens/excluir.png"></a></td>
 			</tr>
 
 		</c:forEach>

@@ -2,7 +2,19 @@
  * 
  */
 $(document).ready(function(){
-    $("#datepicker").datepicker({dateFormat: 'dd/mm/yy'});
+	mascara();
+	$("#datepicker").datepicker({dateFormat: 'dd/mm/yy'});
 });
+
+
+function excluir (id){
+	if(confirm("Tem certeza que deseja excluir ?")){
+		location.href = "/Fj21/mvc?logica=ExcluirContato&id=" + id;
+	}
+}
+
+function mascara(){
+	$("#campoMascara").mask("99/99/9999");
+}
 
 

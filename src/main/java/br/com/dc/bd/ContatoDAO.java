@@ -16,7 +16,7 @@ public class ContatoDAO {
 
 	private Connection conexao;
 
-	public ContatoDAO()  {
+	public ContatoDAO() {
 		this.conexao = new ConnectionFactory().getConnection();
 		System.out.println("Conectado");
 	}
@@ -76,7 +76,36 @@ public class ContatoDAO {
 
 	}
 
+	public Contato buscaContato(Contato contatoId) {
+
+		String sql = "select * from contatos where id =?";
+		Contato contato = new Contato();
+		try {
+			PreparedStatement stmt = this.conexao.prepareStatement(sql);
+			stmt.setLong(1, contatoId.getId());
+			// stmt.setInt(1, contatoId);
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+
+				contato.setId(rs.getLong("id"));
+				contato.setNome(rs.getString("nome"));
+				contato.setEmail(rs.getString("email"));
+				contato.setEndereco(rs.getString("endereco"));
+
+				Calendar data = Calendar.getInstance();
+				data.setTime(rs.getDate("dataNascimento"));
+				contato.setDataNascimento(data);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+		return contato;
+	}
+
 	public void altera(Contato contato) {
+
 		String sql = "update contatos set nome=?, email=?, endereco=?, dataNascimento=? where id=?";
 
 		try {

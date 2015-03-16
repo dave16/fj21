@@ -17,11 +17,11 @@
 <h3>Formulário para alteração de contatos : </h3>
 
 <form action="mvc" method="post">
-Id : <input type="text" name="id"><br/>
-Nome : <input type="text" name="nome"><br/>
-E-mail : <input type="text" name="email"> <br/>
-Endereço : <input type="text" name="endereco"><br/>
-Data de Nascimento <input type="text" name="dataNascimento" id="datepicker"><br/>
+Id : <input type="hidden" name="id" value="${cont.id}" ><br/>
+Nome : <input type="text" name="nome" value="${cont.nome}"><br/>
+E-mail : <input type="text" name="email" value="${cont.email}"> <br/>
+Endereço : <input type="text" name="endereco" value="${cont.endereco}"><br/>
+Data de Nascimento <input type="text" name="dataNascimento" id="datepicker" value="${cont.dataNascimento}"><br/>
 
 <input type="hidden" name="logica" value="AlteraContato">
 <input type="submit" value="Ok">

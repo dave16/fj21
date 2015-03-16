@@ -30,6 +30,7 @@ public class ListaContato implements Logica{
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/lista-contatos-elegante.jsp");
 		rd.forward(request, response);
+		
 	}
 
 }

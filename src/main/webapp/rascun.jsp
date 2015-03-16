@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img alt="2" src="resources/imagens/american.jpg" width="100%" height="90">
+<form action="mvc">
+<input type="submit" value="Ok">
+<input type="hidden" name="logica" value="Rascunho">
+
+</form>
 </body>
 </html>
