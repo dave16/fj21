@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.dc.models.Contato;
+import br.com.dc.models.Usuario;
 
 public class ContatoDAO {
 
@@ -23,7 +24,7 @@ public class ContatoDAO {
 
 	public void adiciona(Contato contato) {
 
-		String sql = "insert into contatos (nome,email,endereco,dataNascimento) values (?,?,?,?)";
+		String sql = "insert into contato (nome,email,endereco,dataNascimento,dataCadastro,usuario_id) values (?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -33,7 +34,8 @@ public class ContatoDAO {
 			stmt.setString(3, contato.getEndereco());
 			stmt.setDate(4, new Date(contato.getDataNascimento()
 					.getTimeInMillis()));
-
+			stmt.setDate(5, new Date(contato.getDataCadastro().getTimeInMillis()));
+			stmt.setLong(6, contato.getUsuario().getId());
 			// executa
 			stmt.execute();
 			stmt.close();
@@ -43,13 +45,29 @@ public class ContatoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public void adicionaUsuario(Usuario usuario){
+		String sql = "insert into usuario(login,senha) values(?,?)";
+		
+		try{
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, usuario.getLogin());
+			stmt.setString(2, usuario.getSenha());
+			
+			stmt.execute();
+			stmt.close();
+		}catch(SQLException e){
+			throw new RuntimeException(e);
+		}
+		
+	}
 
 	public List<Contato> getLista() {
 
 		try {
 			List<Contato> contatos = new ArrayList<Contato>();
 			PreparedStatement stmt = this.conexao
-					.prepareStatement("select * from contatos");
+					.prepareStatement("select * from contato");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -64,6 +82,10 @@ public class ContatoDAO {
 				data.setTime(rs.getDate("dataNascimento"));
 				contato.setDataNascimento(data);
 
+				Calendar dataCadastro = Calendar.getInstance();
+				dataCadastro.setTime(rs.getDate("dataCadastro"));
+				contato.setDataCadastro(dataCadastro);
+				
 				// adicionando o objeto à lista
 				contatos.add(contato);
 			}
@@ -78,7 +100,7 @@ public class ContatoDAO {
 
 	public Contato buscaContato(Contato contatoId) {
 
-		String sql = "select * from contatos where id =?";
+		String sql = "select * from contato where id =?";
 		Contato contato = new Contato();
 		try {
 			PreparedStatement stmt = this.conexao.prepareStatement(sql);
@@ -106,7 +128,7 @@ public class ContatoDAO {
 
 	public void altera(Contato contato) {
 
-		String sql = "update contatos set nome=?, email=?, endereco=?, dataNascimento=? where id=?";
+		String sql = "update contato set nome=?, email=?, endereco=?, dataNascimento=? where id=?";
 
 		try {
 			PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -126,7 +148,7 @@ public class ContatoDAO {
 	public void remove(Contato contato) {
 		try {
 			PreparedStatement stmt = conexao
-					.prepareStatement("delete from contatos where id=?");
+					.prepareStatement("delete from contato where id=?");
 			stmt.setLong(1, contato.getId());
 			stmt.execute();
 			stmt.close();

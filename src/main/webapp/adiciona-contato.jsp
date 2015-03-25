@@ -40,13 +40,13 @@
 				</tr>
 
 				<tr>
-					<td>Data Nascimento :</td>
-					<td><input type="text" name="dataNascimento" id="datepicker"></td>
+					<td>Data DatePicker :</td>
+					<td><input type="text" name="dataDatePicker" id="datepicker"></td>
 				</tr>
 
 				<tr>
-					<td>Campo Mascara</td>
-					<td><input type="text" id="campoMascara"></td>
+					<td>Data Nascimento</td>
+					<td><input type="text" id="dataNascimento" name="dataNascimento"></td>
 				</tr>
 
 				<tr>

@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.dc.models.Contato;
+import br.com.dc.models.Usuario;
 
 public class TestaDAO {
 
@@ -29,5 +30,11 @@ public class TestaDAO {
 			System.out.println(e + "\n");
 
 		}
+		
+		Usuario usuario = new Usuario();
+		usuario.setLogin("eu");
+		usuario.setSenha("123");
+		dao.adicionaUsuario(usuario);
+		
 	}
 }

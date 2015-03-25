@@ -14,7 +14,7 @@ function excluir (id){
 }
 
 function mascara(){
-	$("#campoMascara").mask("99/99/9999");
+	$("#dataNascimento").mask("99/99/9999");
 }
 
 

@@ -34,7 +34,7 @@ public class BuscaContato implements Logica{
 		System.out.println(contato.getEmail());
 		System.out.println(contato.getEndereco());
 		System.out.println(contato.getDataNascimento());
-	
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		String data = sdf.format(contato.getDataNascimento().getTime());
 		System.out.println(data);
