@@ -16,7 +16,7 @@
 	<br />
 	<br />
 	
-	<jsp:useBean id="dao" class="br.com.dc.bd.ContatoDAO" />
+	<jsp:useBean id="dao" class="br.com.dc.bd.jdbc.ContatoDAO" />
 
 	<table border="3px" cellpadding="10px" bordercolor="red">
 		<tr>

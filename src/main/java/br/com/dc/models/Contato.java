@@ -3,14 +3,26 @@ package br.com.dc.models;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+
+@Entity
 public class Contato {
 
+	@Id @GeneratedValue
 	private Long id;
 	private String nome;
 	private String email;
 	private String endereco;
 	private Calendar dataNascimento;
 	private Calendar dataCadastro;
+	@OneToOne
+	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 
 	public Long getId() {

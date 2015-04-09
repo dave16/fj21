@@ -1,7 +1,15 @@
 package br.com.dc.models;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Embeddable
 public class Usuario {
 
+	@Id @GeneratedValue
 	private Long id;
 	private String login;
 	private String senha;

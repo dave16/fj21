@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.dc.logica.Logica;
+import br.com.dc.bd.jdbc.Logica;
 
 public class ControllerServlet extends HttpServlet{
 
@@ -16,7 +16,7 @@ public class ControllerServlet extends HttpServlet{
 			throws ServletException, IOException {
 		 
 		String parametro = request.getParameter("logica");
-		String nomeDaClasse = "br.com.dc.logica." + parametro;
+		String nomeDaClasse = "br.com.dc.bd.jdbc." + parametro;
 		
 		try{
 			Class classe = Class.forName(nomeDaClasse);

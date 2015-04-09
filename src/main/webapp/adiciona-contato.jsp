@@ -20,8 +20,6 @@
 		<fieldset >
 		<legend>Cadastro</legend>
 		
-	SSSS <input type="text"><br>
-	eeee <input type="text">	
 			<table border="1"
 				style="width: 20%; margin-left: 300px; margin-bottom: 100px; margin-top: 100px">
 				<tr>

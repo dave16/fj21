@@ -1,0 +1,32 @@
+//Comandos SQL
+create database fj21; - = cria o banco de dados
+show databases = mostra os bancos cadastrados
+use fj21 ; = usa o banco ;
+show tables ;
+describe contato = exibe as informaçoes da tabela contato
+select * from contato;
+insert into contato(nome,email) values(?,?);
+truncate contato = apaga todos os registros da tabela contato
+drop table contato ;  = deleta a tabela contato
+drop database fj21; = deleta o banco
+
+
+create table contato(
+id BIGINT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(255),
+email VARCHAR(255),
+endereco VARCHAR(255),
+dataNascimento DATE,
+dataCadastro DATE,
+usuario_id bigint,
+primary key (id),
+foreign key (usuario_id) references usuario(id)
+);
+
+
+create table usuario(
+id BIGINT NOT NULL AUTO_INCREMENT,
+login VARCHAR(255) NOT NULL UNIQUE,
+senha VARCHAR(255) NOT NULL,
+primary key(id)
+);
