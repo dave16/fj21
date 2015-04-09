@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,17 +22,9 @@ public class ListaContatoJpa implements Logica {
 		List<Contato> lista = new ArrayList<Contato>();
 		lista = repositorio.getListaTudo();
 		
-		for(Contato contato : lista){
-			System.out.println("Id : " + contato.getId());
-			System.out.println("Nome : " + contato.getNome());
-			System.out.println("Email : " + contato.getEmail());
-			System.out.println("Login : " + contato.getUsuario().getLogin());
-			System.out.println("Senha : "  + contato.getUsuario().getSenha() + "\n");
-			
-			
-		}
-		
-		
+		request.setAttribute("listaRepositorio"	, lista);		
+		RequestDispatcher rd = request.getRequestDispatcher("/pagina-jpa/lista-contato.jsp");
+		rd.forward(request, response);
 
 	}
 

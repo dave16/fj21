@@ -10,23 +10,35 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<jsp:useBean id="dao" class="br.com.dc.bd.jpa.Repositorio" />
+<fieldset >
+<legend> <strong>Lista De Contatos</strong></legend>
 	<table border="3px" cellpadding="10px" bordercolor="red">
 		<tr>
 			<td>Id</td>
 			<td>Nome</td>
-
+			<td>Email</td>
+			<td>Endereco</td>
+			<td>Data</td>
+			<td>Login</td>
+			<td>Senha</td>
 		</tr>
 
-		<c:forEach var="contato" items="${dao.listaTudo}">
+		<c:forEach var="contato" items="${listaRepositorio}">
 			<tr>
 				<td>${contato.id}</td>
+				<td>${contato.nome}</td>
+				<td>${contato.email}</td>
+				<td>${contato.endereco}</td>
+				<td>
+				<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
+				</td>
+				<td>${contato.usuario.login}</td>
+				<td>${contato.usuario.senha}</td>
 			</tr>
 		</c:forEach>
 
 
 	</table>
-
+</fieldset>
 </body>
 </html>
