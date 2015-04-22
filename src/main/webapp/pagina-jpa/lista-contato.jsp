@@ -21,19 +21,28 @@
 			<td>Data</td>
 			<td>Login</td>
 			<td>Senha</td>
+			<td>Editar</td>
+			<td>Excluir</td>
 		</tr>
 
 		<c:forEach var="contato" items="${listaRepositorio}">
 			<tr>
 				<td>${contato.id}</td>
 				<td>${contato.nome}</td>
-				<td>${contato.email}</td>
+				<td><c:choose>
+				<c:when test="${not empty contato.email}"><a href="mailto:${contato.email}">${contato.email}</a></c:when>
+				<c:otherwise>Email nao informado</c:otherwise>
+				</c:choose>
+				</td>
+				
 				<td>${contato.endereco}</td>
 				<td>
 				<fmt:formatDate value="${contato.dataNascimento.time}" pattern="dd/MM/yyyy"/>
 				</td>
 				<td>${contato.usuario.login}</td>
 				<td>${contato.usuario.senha}</td>
+				<td><a href="/Fj21/jpa?logica=BuscaContatoJpa&id=${contato.id}"><img alt="editar" src="../resources/imagens/editar_1.png" width="100"></a></td>
+				<td><a href="/Fj21/jpa?logica=ExcluirContatoJpa&id=${contato.id}" onclick="return confirm('Excluir contato ?')"><img alt="excluir" src="../resources/imagens/excluir_1.png" width="100"></a></td>
 			</tr>
 		</c:forEach>
 

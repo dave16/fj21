@@ -17,57 +17,18 @@ public class TestaJPA {
 	public static void main(String[] args) {
 
 		EntityManager manager = EntityManagerUtil.getEntityManager();
-		
-		Repositorio repositorio = new Repositorio(manager , Contato.class);
+
+		Repositorio repositorio = new Repositorio(manager, Contato.class);
 
 		manager.getTransaction().begin();
-		
-		Long id = 4L;
-	//	System.out.println(	repositorio.busca(id));
-		Contato contato = new Contato();
-	//	contato.setId(8L);
-	//	repositorio.remove(contato);
-		
-		
-	/*
+
+		Long id = 1L;
 		Usuario usuario = new Usuario();
-		usuario.setLogin("eu");
-		usuario.setSenha("123");
+		usuario.setId(id);
+		Contato contato = new Contato();
+		contato.setId(id);
+		repositorio.remove(usuario);
 
-		Contato contatoAdiciona = new Contato();
-		contatoAdiciona.setNome("Nelson");
-		contatoAdiciona.setEmail("estebam@ig.com");
-		contatoAdiciona.setEndereco("Rua");
-		contatoAdiciona.setDataCadastro(Calendar.getInstance());
-		contatoAdiciona.setDataNascimento(Calendar.getInstance());
-		contatoAdiciona.setUsuario(usuario);
-
-		repositorio.adiciona(usuario);
-		repositorio.adiciona(contatoAdiciona);
-
-		
-	*/
-		
-		List<Contato> lista = new ArrayList<Contato>();
-		lista = repositorio.getListaTudo();
-		
-		for(Contato contat : lista){
-			System.out.println("Id : " + contat.getId());
-			System.out.println("Nome : " + contat.getNome());
-			System.out.println("Email : " + contat.getEmail());
-			System.out.println("Endereco : " + contat.getEndereco());
-			
-			SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-			String dataFormatada = formato.format(contat.getDataCadastro().getTime());
-			System.out.println("Data Cadastro : " + dataFormatada);
-			
-			System.out.println("Login : " + contat.getUsuario().getLogin());
-			System.out.println("Senha :  " + contat.getUsuario().getSenha() + "\n");
-		}
-		
-		
-		
-	
 		manager.getTransaction().commit();
 		manager.close();
 

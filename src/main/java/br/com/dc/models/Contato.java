@@ -1,28 +1,33 @@
 package br.com.dc.models;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javax.persistence.Embedded;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SequenceGenerator;
 
 
 @Entity
+@SequenceGenerator(name = "CONTATO_SEQUENCE" , sequenceName = "CONTATO_SEQUENCE" , allocationSize = 1 , initialValue = 0)
 public class Contato {
 
-	@Id @GeneratedValue
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY , generator = "CONTATO_SEQUENCE")
 	private Long id;
 	private String nome;
 	private String email;
 	private String endereco;
 	private Calendar dataNascimento;
 	private Calendar dataCadastro;
-	@OneToOne
-	@JoinColumn(name="usuario_id")
+	@OneToOne(cascade=CascadeType. ALL , optional = false , fetch = FetchType.EAGER , orphanRemoval = true)
+	@PrimaryKeyJoinColumn
 	private Usuario usuario;
 
 	public Long getId() {

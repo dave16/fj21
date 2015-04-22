@@ -1,19 +1,22 @@
 package br.com.dc.models;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
-@Embeddable
+@SequenceGenerator(name="USUARIO_SEQUENCIA" , sequenceName = "USUARIO_SEQUENCIA" , allocationSize=1, initialValue=0)
 public class Usuario {
 
-	@Id @GeneratedValue
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USUARIO_SEQUENCIA")
 	private Long id;
 	private String login;
 	private String senha;
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -37,4 +40,6 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	
 }

@@ -22,8 +22,9 @@ public class Repositorio<T> {
 	}
 
 	public T busca(Long id) {
-		return manager.find(t, id);
-
+		T classe = manager.find(t, id);
+		return classe;
+		// return manager.find(t,id);
 	}
 
 	public List<T> getListaTudo() {
@@ -35,9 +36,9 @@ public class Repositorio<T> {
 		manager.remove(manager.merge(entidade));
 	}
 
-	public void atualiza(T entidade) {
-		manager.find(t, entidade);
+	public void atualiza(T entidade, Long id) {
+		entidade = manager.find(t, id);
 		manager.merge(entidade);
+		System.out.println("Fim do método atualiza");
 	}
-
 }
