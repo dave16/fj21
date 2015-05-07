@@ -4,19 +4,18 @@
 <head>
 <link rel="stylesheet" href="resources/core/jquery-ui.css"
 	type="text/css">
-<script type="text/javascript" src="resources/core/jquery-1.8.0.js"></script>
-<script type="text/javascript" src="resources/core/jquery-ui.js"></script>
-<script type="text/javascript" src="resources/core/scripts.js"></script>
-<script type="text/javascript"
-	src="resources/core/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="../resources/core/jquery-1.8.0.js"></script>
+<script type="text/javascript" src="../resources/core/jquery-ui.js"></script>
+<script type="text/javascript" src="../resources/core/scripts.js"></script>
+<script type="text/javascript" src="../resources/core/jquery.maskedinput.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
 </head>
 <body>
-	<c:import url="cabecalho.jsp" />
+	<c:import url="/cabecalho.jsp" />
 
-	<form action="mvc" method="post">
+	<form action="/Fj21/mvc" method="post">
 		<fieldset >
 		<legend>Cadastro</legend>
 		
@@ -74,6 +73,6 @@
 		</fieldset>
 	</form>
 
-	<c:import url="rodape.jsp" />
+	<c:import url="/rodape.jsp" />
 </body>
 </html>

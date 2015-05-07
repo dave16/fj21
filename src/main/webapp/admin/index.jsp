@@ -1,4 +1,4 @@
-/<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img alt="2" src="../resources/imagens/american.jpg" width="100%" height="90">
+<h3>Olá , você está logado no sistema!</h3>
+<a href="/Fj21/jpa?logica=Logout">Sair</a>
 </body>
 </html>

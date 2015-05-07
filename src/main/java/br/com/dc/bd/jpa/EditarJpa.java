@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.dc.models.Contato;
-import br.com.dc.models.Usuario;
 
 public class EditarJpa implements Logica {
 
@@ -30,7 +29,6 @@ public class EditarJpa implements Logica {
 		EntityManager manager = new EntityManagerUtil().getEntityManager();
 		Repositorio repositorio = new Repositorio(manager, Contato.class);		
 		
-		Usuario usuario ;
 		
 		
 		Contato contato = (Contato) repositorio.busca(id);
@@ -51,8 +49,11 @@ public class EditarJpa implements Logica {
 		
 		System.out.println("Contato atualizado");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/pagina-jpa/teste.jsp");
-		rd.forward(request, response);
+	
+		
+	//	RequestDispatcher rd = request.getRequestDispatcher("/pagina-jpa/teste.jsp");
+		response.sendRedirect(request.getContextPath() +  "/pagina-jpa/teste.jsp");
+	//	rd.forward(request, response);
 		
 
 	}

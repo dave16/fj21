@@ -24,7 +24,7 @@ public class Customer {
     @Column
     private String name;
  
-    @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER,orphanRemoval=true)
     // @JoinColumn(name="USER_ID", nullable=false)
     @PrimaryKeyJoinColumn
     private User user;

@@ -47,6 +47,12 @@
 			<version>3.3.2.Beta1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+
 	</dependencies>
 
 

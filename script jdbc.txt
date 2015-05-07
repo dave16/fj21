@@ -10,7 +10,6 @@ truncate contato = apaga todos os registros da tabela contato
 drop table contato ;  = deleta a tabela contato
 drop database fj21; = deleta o banco
 
-
 Generation.Type=
 Identity - Mapeado para colunas identity no DB2, MySQL, MSSQL, Sybase, HSQLDM, Infomix. 
 Sequence- Mapeado em seqüências no DB2, PostgreSQL, Oracle, SAP DB, irebird (ou generator no Interbase). 

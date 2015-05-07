@@ -21,9 +21,11 @@ public class ExcluirContato implements Logica {
 		dao.remove(contato);
 		
 		System.out.println("Contato removido com sucesso");
+	
+		response.sendRedirect(request.getContextPath() + "/paginas-jdbc/lista-contatos-elegante.jsp");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/lista-contatos-elegante.jsp");
-		rd.forward(request, response);
+	//	RequestDispatcher rd = request.getRequestDispatcher("/paginas-jdbc//lista-contatos-elegante.jsp");
+	//	rd.forward(request, response);
 	}
 
 }

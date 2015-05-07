@@ -38,10 +38,16 @@ public class BuscaContato implements Logica{
 		String data = sdf.format(contato.getDataNascimento().getTime());
 		System.out.println(data);
 		
-		request.setAttribute("cont", contato);
+		//request.setAttribute("cont", contato);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("altera-contato.jsp");
-		rd.forward(request, response);
+		
+		
+		//RequestDispatcher rd = request.getRequestDispatcher("/paginas-jdbc/altera-contato.jsp");
+		//rd.forward(request, response);
+		
+		
+		request.getSession().setAttribute("cont", contato);
+		response.sendRedirect(request.getContextPath() + "/paginas-jdbc/altera-contato.jsp");
 		
 	}
 

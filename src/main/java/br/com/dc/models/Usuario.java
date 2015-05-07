@@ -8,11 +8,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name="USUARIO_SEQUENCIA" , sequenceName = "USUARIO_SEQUENCIA" , allocationSize=1, initialValue=0)
+@SequenceGenerator(name="USUARIO_SEQUENCIA" , sequenceName = "USUARIO_SEQUENCIA" ,  allocationSize=1, initialValue=0)
 public class Usuario {
 
 	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USUARIO_SEQUENCIA")
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USUARIO_SEQUENCIA" )
 	private Long id;
 	private String login;
 	private String senha;

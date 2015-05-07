@@ -7,12 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="mvc" method="post">
-Id : <input type="text" name="id">
+<a href="lista-contatos-elegante.jsp">Home</a><br/>
 
-<input type="submit" value="Ok" >
-<input type="hidden" name="logica" value="BuscaContato"> 
-
-</form>
+Contato ${param.nome} adicionado com sucesso
 </body>
 </html>

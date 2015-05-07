@@ -45,9 +45,11 @@ public class AdicionaContato implements Logica {
 
 		System.out.println("Contato " + nome + "adicionado");
 
-		RequestDispatcher rd = request
-				.getRequestDispatcher("/contato-adicionado.jsp");
-		rd.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/paginas-jdbc/contato-adicionado.jsp");
+		
+		//RequestDispatcher rd = request
+		//		.getRequestDispatcher("/paginas-jdbc/contato-adicionado.jsp");
+		//rd.forward(request, response);
 	}
 
 	public Calendar converteDataParaCalendar(String data) {

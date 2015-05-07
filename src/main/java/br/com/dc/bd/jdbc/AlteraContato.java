@@ -43,8 +43,10 @@ public class AlteraContato implements Logica{
 		ContatoDAO dao = new ContatoDAO();
 		dao.altera(contato);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/lista-contatos-elegante.jsp");
-		rd.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/paginas-jdbc/lista-contatos-elegante.jsp");
+		
+		//RequestDispatcher rd = request.getRequestDispatcher("/paginas-jdbc/lista-contatos-elegante.jsp");
+		//rd.forward(request, response);
 		System.out.println("Alterando contato ..." + contato.getNome());
 		
 	}

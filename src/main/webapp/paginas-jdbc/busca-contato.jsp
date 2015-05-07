@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-Contato ${param.nome} adicionado com sucesso
+<form action="/Fj21/mvc" method="post">
+Id : <input type="text" name="id">
+
+<input type="submit" value="Ok" >
+<input type="hidden" name="logica" value="BuscaContato"> 
+
+</form>
 </body>
 </html>

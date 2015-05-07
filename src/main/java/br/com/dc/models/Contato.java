@@ -26,7 +26,7 @@ public class Contato {
 	private String endereco;
 	private Calendar dataNascimento;
 	private Calendar dataCadastro;
-	@OneToOne(cascade=CascadeType. ALL , optional = false , fetch = FetchType.EAGER , orphanRemoval = true)
+	@OneToOne(cascade=CascadeType. ALL , optional = false , fetch = FetchType.EAGER ,orphanRemoval=true)
 	@PrimaryKeyJoinColumn
 	private Usuario usuario;
 
