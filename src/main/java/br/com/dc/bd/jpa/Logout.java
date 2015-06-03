@@ -9,7 +9,7 @@ public class Logout  implements Logica{
 			throws Exception {
 		request.getSession().invalidate();
 		
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("loginJpa.jsp");
 	}
 
 

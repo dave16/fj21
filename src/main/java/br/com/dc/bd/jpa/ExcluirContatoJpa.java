@@ -27,8 +27,8 @@ public class ExcluirContatoJpa  implements Logica{
 		
 		manager.getTransaction().commit();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/pagina-jpa/teste.jsp");
-		rd.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/pagina-jpa/listaServlet.jsp");
+		
 	}
 
 }

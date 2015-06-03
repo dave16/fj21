@@ -23,7 +23,7 @@ public class ContatoDAO {
 	}
 
 	Usuario usuario = new Usuario();
-	
+
 	public void adiciona(Contato contato) {
 
 		String sql = "insert into contato (nome,email,endereco,dataNascimento,dataCadastro,usuario_id) values (?,?,?,?,?,LAST_INSERT_ID())";
@@ -34,9 +34,11 @@ public class ContatoDAO {
 			stmt.setString(1, contato.getNome());
 			stmt.setString(2, contato.getEmail());
 			stmt.setString(3, contato.getEndereco());
-			stmt.setDate(4, new Date(contato.getDataNascimento().getTimeInMillis()));
-			stmt.setDate(5, new Date(contato.getDataCadastro().getTimeInMillis()));
-			
+			stmt.setDate(4, new Date(contato.getDataNascimento()
+					.getTimeInMillis()));
+			stmt.setDate(5, new Date(contato.getDataCadastro()
+					.getTimeInMillis()));
+
 			// executa
 			stmt.execute();
 			stmt.close();
@@ -47,19 +49,19 @@ public class ContatoDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	public Usuario adicionaUsuario(Usuario usuario){
+
+	public Usuario adicionaUsuario(Usuario usuario) {
 		this.usuario = usuario;
 		String sql = "insert into usuario(login,senha) values(?,?)";
-		
-		try{
+
+		try {
 			PreparedStatement stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, usuario.getLogin());
 			stmt.setString(2, usuario.getSenha());
-			
+
 			stmt.execute();
 			stmt.close();
-		}catch(SQLException e){
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 		System.out.println(usuario.getLogin());
@@ -89,8 +91,7 @@ public class ContatoDAO {
 				Calendar dataCadastro = Calendar.getInstance();
 				dataCadastro.setTime(rs.getDate("dataCadastro"));
 				contato.setDataCadastro(dataCadastro);
-				
-				
+
 				// adicionando o objeto à lista
 				contatos.add(contato);
 			}
@@ -161,4 +162,21 @@ public class ContatoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+
+	public boolean verificaLogin(Usuario usuario) throws SQLException {
+		String sql = "select * from usuario where login=? and senha=?";
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			stmt.setString(1, usuario.getLogin());
+			stmt.setString(2, usuario.getSenha());
+			ResultSet rs = stmt.executeQuery();
+			if (!rs.next()) {
+				System.out.println("Não Encontrado");
+				stmt.close();
+				return false;
+			} else {
+				System.out.println("Encontrado");
+				return true;
+			}
+	}
+	
 }

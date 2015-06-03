@@ -28,12 +28,9 @@ public class LogarJpa extends HttpServlet {
 		manager.getTransaction().begin();
 
 		List<Usuario> lista = repositorio.verificaLog(login, senha);
-		for (Usuario u : lista) {
-			System.out.println(u.getLogin());
-		}
 
 		if (lista.isEmpty()) {
-			response.sendRedirect(request.getContextPath() + "/login.jsp");
+			response.sendRedirect(request.getContextPath() + "/loginJpa.jsp");
 			request.getSession().setAttribute("mensagem", "Login ou senha incorretos !");
 		}
 

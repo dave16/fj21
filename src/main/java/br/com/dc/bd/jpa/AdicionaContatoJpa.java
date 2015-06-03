@@ -53,8 +53,8 @@ public class AdicionaContatoJpa implements Logica {
 		
 		System.out.println("Contato " + nome + "adicionado com sucesso");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("pagina-jpa/teste.jsp");
-		rd.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/pagina-jpa/listaServlet.jsp");
+		
 	
 	
 	}

@@ -9,7 +9,7 @@ public class ConnectionFactory {
 		
 	public Connection getConnection() {
 		
-		String urlBanco= "jdbc:mysql://localhost/fj21";
+		String urlBanco= "jdbc:mysql://localhost/Fj21_jdbc";
 		String usuario = "root";
 		String senha = "";
 		

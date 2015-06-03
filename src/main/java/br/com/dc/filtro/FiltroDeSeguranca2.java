@@ -30,7 +30,7 @@ public class FiltroDeSeguranca2 implements Filter{
 		if(lista == null){
 			session.setAttribute("msg", "Voce nao está logado");
 			HttpServletResponse rep = (HttpServletResponse) response;
-			rep.sendRedirect("/Fj21/" + "admin/index.jsp");
+			rep.sendRedirect(req.getContextPath() + "/loginJpa.jsp");
 		}else{
 			chain.doFilter(request, response);
 		}

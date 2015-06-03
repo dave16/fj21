@@ -51,9 +51,7 @@ public class EditarJpa implements Logica {
 		
 	
 		
-	//	RequestDispatcher rd = request.getRequestDispatcher("/pagina-jpa/teste.jsp");
-		response.sendRedirect(request.getContextPath() +  "/pagina-jpa/teste.jsp");
-	//	rd.forward(request, response);
+		response.sendRedirect(request.getContextPath() +  "/pagina-jpa/listaServlet.jsp");
 		
 
 	}

@@ -30,7 +30,7 @@ th {
 </head>
 <body>
 	<form method="POST" action="LogarJPA">
-
+<b style="color:blue"> ${mensagem}</b>
 		<table>
 
 			<tr>
@@ -43,7 +43,7 @@ th {
 
 				<td>Login:</td>
 
-				<td><input class="campo" type="text" name="login" /><b style="color:blue"> ${mensagem}</b></td>
+				<td><input class="campo" type="text" name="login" /></td>
 
 			</tr>
 
